@@ -9,15 +9,15 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <div className="product-card group">
       {/* Image */}
-      <div className="relative aspect-square overflow-hidden">
+      <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-secondary to-muted flex items-center justify-center p-4">
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-lg"
           loading="lazy"
         />
         {/* Price Badge */}
-        <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
+        <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold shadow-md">
           {product.price}
         </div>
       </div>

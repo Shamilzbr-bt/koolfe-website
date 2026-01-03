@@ -3,14 +3,14 @@
 // Edit this array to update products on the website
 // =====================================================
 
-import kulfiPistachio from "@/assets/kulfi-pistachio.jpg";
-import kulfiMango from "@/assets/kulfi-mango.jpg";
-import kulfiSaffron from "@/assets/kulfi-saffron.jpg";
-import kulfiRose from "@/assets/kulfi-rose.jpg";
-import kulfiCardamom from "@/assets/kulfi-cardamom.jpg";
-import kulfiAlmond from "@/assets/kulfi-almond.jpg";
-import kulfiChocolate from "@/assets/kulfi-chocolate.jpg";
-import kulfiMalai from "@/assets/kulfi-malai.jpg";
+import kulfiPistachio from "@/assets/kulfi-pistachio.png";
+import kulfiMango from "@/assets/kulfi-mango.png";
+import kulfiSaffron from "@/assets/kulfi-saffron.png";
+import kulfiRose from "@/assets/kulfi-rose.png";
+import kulfiCardamom from "@/assets/kulfi-cardamom.png";
+import kulfiAlmond from "@/assets/kulfi-almond.png";
+import kulfiCoconut from "@/assets/kulfi-coconut.png";
+import kulfiMalai from "@/assets/kulfi-malai.png";
 
 export interface Product {
   id: string;
@@ -27,7 +27,7 @@ export const products: Product[] = [
   {
     id: "pistachio",
     name: "Pistachio Kulfi",
-    description: "Rich, creamy kulfi with premium Iranian pistachios",
+    description: "Rich, creamy kulfi loaded with premium pistachios",
     price: "2.500 KD",
     image: kulfiPistachio,
   },
@@ -48,7 +48,7 @@ export const products: Product[] = [
   {
     id: "rose",
     name: "Rose Petal",
-    description: "Delicate rose essence with dried rose petals",
+    description: "Delicate rose essence with dried petals & almonds",
     price: "2.750 KD",
     image: kulfiRose,
   },
@@ -67,16 +67,16 @@ export const products: Product[] = [
     image: kulfiAlmond,
   },
   {
-    id: "chocolate",
-    name: "Belgian Chocolate",
-    description: "Rich dark Belgian chocolate fusion",
-    price: "3.000 KD",
-    image: kulfiChocolate,
+    id: "coconut",
+    name: "Tender Coconut",
+    description: "Fresh coconut shreds in creamy kulfi base",
+    price: "2.500 KD",
+    image: kulfiCoconut,
   },
   {
     id: "malai",
     name: "Classic Malai",
-    description: "Traditional creamy kulfi with silver leaf",
+    description: "Traditional creamy kulfi served in clay pot",
     price: "2.250 KD",
     image: kulfiMalai,
   },
