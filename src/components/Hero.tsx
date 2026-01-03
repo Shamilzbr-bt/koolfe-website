@@ -40,7 +40,7 @@ export const Hero = () => {
 
           {/* Subheadline */}
           <p className="text-xl md:text-2xl opacity-90 mb-10 max-w-xl mx-auto animate-fade-up delay-200">
-            Handcrafted kulfi made with love, using time-honored recipes and the finest ingredients.
+            Our kulfi is crafted using centuries-old traditional recipes, made from pure, hand-picked ingredients and perfected techniques. Freshly prepared with care, it brings you the authentic taste of timeless indulgence.
           </p>
 
           {/* CTA Buttons */}
