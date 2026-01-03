@@ -95,7 +95,7 @@ export const products: Product[] = [
 // =====================================================
 export const brandInfo = {
   name: "Koolfe",
-  tagline: "Premium Artisan Kulfi",
+  tagline: "Authentic Kulfi",
   
   // REPLACE WITH YOUR WHATSAPP NUMBER (include country code, no + or spaces)
   whatsappNumber: "96556571366",
@@ -115,11 +115,11 @@ export const brandInfo = {
   location: {
     name: "Street 25, West Abu Fatira, Kuwait",
     // REPLACE with actual Google Maps embed URL
-    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111426.51949714879!2d47.91709!3d29.31166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf9c8f9d6c8c9d%3A0x3f3b9e8c8d8e8f8f!2sKuwait%20City!5e0!3m2!1sen!2skw!4v1234567890",
+    mapUrl: "https://maps.app.goo.gl/PiUQx6JHgXsggZYQ7",
   },
   
   // Menu PDF URL
-  menuPdfUrl: "/menu.pdf",
+  menuPdfUrl: "/koolfe_menu2.pdf",
 };
 
 // Generate WhatsApp link with prefilled message
