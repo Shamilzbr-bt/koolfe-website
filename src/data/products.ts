@@ -25,60 +25,67 @@ export interface Product {
 // =====================================================
 export const products: Product[] = [
   {
+    id: "kesar-malai",
+    name: "Kesar Malai Kulfi",
+    description: "Creamy malai kulfi enriched with saffron strands, delivering a royal, aromatic flavor and rich traditional taste.",
+    price: "0.200 KD",
+    image: kulfiSaffron,
+  },
+  {
     id: "pistachio",
     name: "Pistachio Kulfi",
-    description: "Rich, creamy kulfi loaded with premium pistachios",
-    price: "2.500 KD",
+    description: "Creamy kulfi made with premium pistachios, offering a rich, nutty flavor and authentic traditional taste.",
+    price: "0.200 KD",
     image: kulfiPistachio,
   },
   {
     id: "mango",
-    name: "Alphonso Mango",
-    description: "Sweet Alphonso mangoes blended into creamy perfection",
-    price: "2.500 KD",
+    name: "Mango Kulfi",
+    description: "Smooth, creamy kulfi infused with real mango pulp for a rich, tropical flavor and classic Indian sweetness.",
+    price: "0.200 KD",
     image: kulfiMango,
   },
   {
-    id: "saffron",
-    name: "Kesar Saffron",
-    description: "Infused with premium Kashmiri saffron strands",
-    price: "3.000 KD",
-    image: kulfiSaffron,
+    id: "chikkoo",
+    name: "Chikkoo Kulfi",
+    description: "Smooth and creamy kulfi made with ripe chikoo, offering a naturally sweet, caramel-like flavor.",
+    price: "0.200 KD",
+    image: kulfiMalai, // Using malai image as placeholder - you'll need a chikkoo image
   },
   {
-    id: "rose",
-    name: "Rose Petal",
-    description: "Delicate rose essence with dried petals & almonds",
-    price: "2.750 KD",
-    image: kulfiRose,
-  },
-  {
-    id: "cardamom",
-    name: "Elaichi Cardamom",
-    description: "Aromatic green cardamom in silky kulfi",
-    price: "2.500 KD",
-    image: kulfiCardamom,
-  },
-  {
-    id: "almond",
-    name: "Badam Almond",
-    description: "Loaded with crunchy California almonds",
-    price: "2.750 KD",
-    image: kulfiAlmond,
+    id: "matka",
+    name: "Matka Kulfi",
+    description: "Traditional kulfi served in an earthen pot, offering an authentic flavor and natural earthy aroma that enhances every creamy scoop.",
+    price: "0.200 KD",
+    image: kulfiMalai,
   },
   {
     id: "coconut",
-    name: "Tender Coconut",
-    description: "Fresh coconut shreds in creamy kulfi base",
-    price: "2.500 KD",
+    name: "Tender Coconut Kulfi",
+    description: "Light, refreshing, and irresistibly creamy—crafted with real tender coconut for a tropical kulfi that melts soft and finishes silky.",
+    price: "0.200 KD",
     image: kulfiCoconut,
   },
   {
-    id: "malai",
-    name: "Classic Malai",
-    description: "Traditional creamy kulfi served in clay pot",
-    price: "2.250 KD",
-    image: kulfiMalai,
+    id: "rose-almond",
+    name: "Rose Almond Kulfi",
+    description: "Fragrant rose-infused kulfi sprinkled with crunchy almonds, combining floral notes with a rich, nutty texture for a truly elegant flavor.",
+    price: "0.200 KD",
+    image: kulfiRose,
+  },
+  {
+    id: "dates",
+    name: "Dates Kulfi",
+    description: "A wholesome and rich kulfi made with pure dates, bringing natural sweetness and a hint of caramel warmth in every bite.",
+    price: "0.200 KD",
+    image: kulfiMalai, // Using malai image as placeholder - you'll need a dates image
+  },
+  {
+    id: "family-pack",
+    name: "Family Pack",
+    description: "Rich, creamy traditional kulfi in a convenient family-size tub, ideal for sharing and bulk serving.",
+    price: "1.000 KD",
+    image: kulfiMalai, // Using malai image as placeholder - you'll need a family pack image
   },
 ];
 
@@ -91,22 +98,22 @@ export const brandInfo = {
   tagline: "Premium Artisan Kulfi",
   
   // REPLACE WITH YOUR WHATSAPP NUMBER (include country code, no + or spaces)
-  whatsappNumber: "96512345678",
+  whatsappNumber: "96556571366",
   
   // Contact details
-  phone: "+965 1234 5678",
-  email: "hello@koolfe.com",
+  phone: "+965 5657 1366",
+  email: "sales@koolfe.com",
   instagram: "@koolfe.kw",
   
   // Business hours
   hours: {
-    weekdays: "10:00 AM - 10:00 PM",
-    weekends: "12:00 PM - 11:00 PM",
+    weekdays: "10:00 AM - 6:00 PM (Closed on Friday)",
+    weekends: "10:00 AM - 6:00 PM (Closed on Friday)",
   },
   
   // Location (for Google Maps embed)
   location: {
-    name: "Kuwait City, Kuwait",
+    name: "Street 25, West Abu Fatira, Kuwait",
     // REPLACE with actual Google Maps embed URL
     mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111426.51949714879!2d47.91709!3d29.31166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf9c8f9d6c8c9d%3A0x3f3b9e8c8d8e8f8f!2sKuwait%20City!5e0!3m2!1sen!2skw!4v1234567890",
   },
