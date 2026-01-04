@@ -1,12 +1,13 @@
 import { FileDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { brandInfo } from "@/data/products";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 export const Menu = () => {
   return (
     <section className="section bg-secondary/50">
       <div className="container-custom">
-        <div className="max-w-2xl mx-auto text-center">
+        <AnimatedSection animation="scale" className="max-w-2xl mx-auto text-center">
           <p className="text-primary font-medium tracking-widest uppercase mb-3">
             Full Menu
           </p>
@@ -33,7 +34,7 @@ export const Menu = () => {
               Download Menu (PDF)
             </a>
           </Button>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

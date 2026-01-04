@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { products, getWhatsAppLink, type Product } from "@/data/products";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 interface ProductCardProps {
   product: Product;
@@ -54,7 +55,7 @@ export const Products = () => {
     <section id="products" className="section bg-muted/30">
       <div className="container-custom">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16">
           <p className="text-primary font-medium tracking-widest uppercase mb-3">
             Our Collection
           </p>
@@ -63,18 +64,18 @@ export const Products = () => {
           <p className="section-subheading">
             Each kulfi is slow-cooked to creamy perfection, made fresh daily with authentic ingredients
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {products.map((product, index) => (
-            <div
+            <AnimatedSection
               key={product.id}
-              className="animate-fade-up"
-              style={{ animationDelay: `${index * 100}ms` }}
+              animation="fade-up"
+              delay={index * 100}
             >
               <ProductCard product={product} />
-            </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>
