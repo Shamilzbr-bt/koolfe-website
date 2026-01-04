@@ -11,6 +11,9 @@ import kulfiCardamom from "@/assets/kulfi-cardamom.png";
 import kulfiAlmond from "@/assets/kulfi-almond.png";
 import kulfiCoconut from "@/assets/kulfi-coconut.png";
 import kulfiMalai from "@/assets/kulfi-malai.png";
+import kulfiChikkoo from "@/assets/kulfi-chikkoo.jpg";
+import kulfiDates from "@/assets/kulfi-dates.png";
+import kulfiFamilyPack from "@/assets/kulfi-family-pack.jpg";
 
 export interface Product {
   id: string;
@@ -50,7 +53,7 @@ export const products: Product[] = [
     name: "Chikkoo Kulfi",
     description: "Smooth and creamy kulfi made with ripe chikoo, offering a naturally sweet, caramel-like flavor.",
     price: "0.200 KD",
-    image: kulfiMalai, // Using malai image as placeholder - you'll need a chikkoo image
+    image: kulfiChikkoo,
   },
   {
     id: "matka",
@@ -78,14 +81,14 @@ export const products: Product[] = [
     name: "Dates Kulfi",
     description: "A wholesome and rich kulfi made with pure dates, bringing natural sweetness and a hint of caramel warmth in every bite.",
     price: "0.200 KD",
-    image: kulfiMalai, // Using malai image as placeholder - you'll need a dates image
+    image: kulfiDates,
   },
   {
     id: "family-pack",
     name: "Family Pack",
     description: "Rich, creamy traditional kulfi in a convenient family-size tub, ideal for sharing and bulk serving.",
     price: "1.000 KD",
-    image: kulfiMalai, // Using malai image as placeholder - you'll need a family pack image
+    image: kulfiFamilyPack,
   },
 ];
 
