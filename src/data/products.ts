@@ -114,8 +114,7 @@ export const brandInfo = {
   // Location (for Google Maps embed)
   location: {
     name: "Street 25, West Abu Fatira, Kuwait",
-    // REPLACE with actual Google Maps embed URL
-    mapUrl: "https://maps.app.goo.gl/PiUQx6JHgXsggZYQ7",
+    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3480.8!2d48.0833!3d29.1667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf05a8d5555555%3A0x1234567890abcdef!2sWest%20Abu%20Fatira%2C%20Kuwait!5e0!3m2!1sen!2skw!4v1704326400000!5m2!1sen!2skw",
   },
   
   // Menu PDF URL
