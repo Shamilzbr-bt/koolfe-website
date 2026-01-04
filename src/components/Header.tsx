@@ -60,9 +60,17 @@ export const Header = () => {
           {/* Desktop Navigation */}
           <ul className="hidden md:flex items-center gap-8">
             {navLinks.map(link => <li key={link.href}>
-                <button onClick={() => handleNavClick(link.href)} className={`nav-link ${activeSection === link.href.slice(1) ? "active" : ""}`}>
+                <a
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link.href);
+                  }}
+                  className={`nav-link ${activeSection === link.href.slice(1) ? "active" : ""}`}
+                  aria-current={activeSection === link.href.slice(1) ? "true" : undefined}
+                >
                   {link.label}
-                </button>
+                </a>
               </li>)}
           </ul>
 
@@ -76,18 +84,32 @@ export const Header = () => {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button className="md:hidden p-2 text-foreground" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle menu">
+          <button
+            className="md:hidden p-2 text-foreground"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
+          >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </nav>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && <div className="md:hidden mt-4 pb-4 animate-fade-in">
+        {isMobileMenuOpen && <div id="mobile-menu" className="md:hidden mt-4 pb-4 animate-fade-in">
             <ul className="flex flex-col gap-4">
               {navLinks.map(link => <li key={link.href}>
-                  <button onClick={() => handleNavClick(link.href)} className={`nav-link block w-full text-left py-2 ${activeSection === link.href.slice(1) ? "active" : ""}`}>
+                  <a
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(link.href);
+                    }}
+                    className={`nav-link block w-full text-left py-2 ${activeSection === link.href.slice(1) ? "active" : ""}`}
+                    aria-current={activeSection === link.href.slice(1) ? "true" : undefined}
+                  >
                     {link.label}
-                  </button>
+                  </a>
                 </li>)}
               <li className="pt-2">
                 <Button variant="whatsapp" size="default" className="w-full" asChild>
