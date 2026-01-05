@@ -15,9 +15,9 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full",
         ghost: "hover:bg-accent hover:text-accent-foreground rounded-lg",
         link: "text-primary underline-offset-4 hover:underline",
-        // Hero variants for premium CTAs
-        hero: "bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 shadow-lg hover:shadow-xl rounded-full font-semibold",
-        heroOutline: "border-2 border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground/10 rounded-full font-semibold",
+        // Hero variants for premium CTAs - Brand Yellow on Purple
+        hero: "bg-brand-yellow text-brand-purple-dark hover:bg-brand-yellow-light hover:scale-105 shadow-lg hover:shadow-xl rounded-full font-semibold",
+        heroOutline: "border-2 border-white bg-transparent text-white hover:bg-white/10 rounded-full font-semibold",
         // WhatsApp branded button
         whatsapp: "bg-[#25D366] text-white hover:bg-[#22c55e] hover:scale-105 shadow-lg hover:shadow-xl rounded-full font-semibold",
       },

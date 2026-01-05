@@ -19,7 +19,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-foreground text-primary-foreground py-12">
+    <footer className="bg-brand-purple-dark text-white py-12">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo & Tagline */}
@@ -31,7 +31,7 @@ export const Footer = () => {
                 className="h-10 w-auto object-contain rounded-lg"
               />
             </a>
-            <p className="text-primary-foreground/70 text-sm">
+            <p className="text-white/70 text-sm">
               {brandInfo.tagline}
             </p>
           </div>
@@ -43,7 +43,7 @@ export const Footer = () => {
                 <li key={link.href}>
                   <button
                     onClick={() => handleClick(link.href)}
-                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
+                    className="text-white/70 hover:text-brand-yellow transition-colors text-sm"
                   >
                     {link.label}
                   </button>
@@ -58,7 +58,7 @@ export const Footer = () => {
               href={`https://instagram.com/${brandInfo.instagram.replace("@", "")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
+              className="text-white/70 hover:text-brand-yellow transition-colors text-sm"
             >
               {brandInfo.instagram}
             </a>
@@ -66,8 +66,8 @@ export const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="mt-8 pt-8 border-t border-primary-foreground/10 text-center">
-          <p className="text-primary-foreground/50 text-sm">
+        <div className="mt-8 pt-8 border-t border-white/10 text-center">
+          <p className="text-white/50 text-sm">
             © {currentYear} {brandInfo.name}. All rights reserved.
           </p>
         </div>
