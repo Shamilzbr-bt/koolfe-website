@@ -121,7 +121,7 @@ export const brandInfo = {
   },
   
   // Menu PDF URL
-  menuPdfUrl: "/koolfe_menu2.pdf",
+  menuPdfUrl: "/koolfe_menu_Revised.pdf",
 };
 
 // Generate WhatsApp link with prefilled message
