@@ -1,48 +1,39 @@
 import { Button } from "@/components/ui/button";
 import { products, getWhatsAppLink, type Product } from "@/data/products";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { ArrowRight } from "lucide-react";
 
-interface ProductCardProps {
-  product: Product;
-}
-
-const ProductCard = ({ product }: ProductCardProps) => {
+const ProductCard = ({ product }: { product: Product }) => {
   return (
-    <div className="product-card group">
-      {/* Image */}
-      <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-secondary to-muted flex items-center justify-center p-4">
+    <div className="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 border border-border/40 h-full flex flex-col">
+      {/* Image Area */}
+      <div className="relative aspect-[4/5] overflow-hidden bg-secondary/30 p-8 flex items-center justify-center">
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-lg"
-          loading="lazy"
+          className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-110 drop-shadow-md"
         />
-        {/* Price Badge */}
-        <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold shadow-md">
+        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur text-primary font-bold px-4 py-1.5 rounded-full text-sm shadow-sm">
           {product.price}
         </div>
       </div>
 
-      {/* Content */}
-      <div className="p-6">
-        <h3 className="font-display text-xl font-semibold mb-2 text-foreground">
+      {/* Info Area */}
+      <div className="p-6 flex flex-col flex-grow text-center">
+        <h3 className="font-display text-2xl font-bold mb-2 text-primary group-hover:text-accent transition-colors">
           {product.name}
         </h3>
-        <p className="text-muted-foreground text-sm mb-4">
+        <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
           {product.description}
         </p>
+        
         <Button
-          variant="outline"
-          size="default"
-          className="w-full"
+          className="w-full bg-primary text-white hover:bg-primary/90 rounded-xl py-6 group/btn"
           asChild
         >
-          <a
-            href={getWhatsAppLink(product.name)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={getWhatsAppLink(product.name)} target="_blank" rel="noopener noreferrer">
             Order Now
+            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
           </a>
         </Button>
       </div>
@@ -52,22 +43,25 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
 export const Products = () => {
   return (
-    <section id="products" className="section bg-muted/30">
-      <div className="container-custom">
-        {/* Section Header */}
-        <AnimatedSection className="text-center mb-16">
-          <p className="text-primary font-medium tracking-widest uppercase mb-3">
-            Our Collection
-          </p>
-          <h2 className="section-heading">Signature Flavors</h2>
-          <div className="decorative-line mt-4 mb-6" />
-          <p className="section-subheading">
-            Each kulfi is slow-cooked to creamy perfection, made fresh daily with authentic ingredients
+    <section id="products" className="py-24 md:py-32 bg-secondary/20 relative">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#2a0a4a_1px,transparent_1px)] [background-size:20px_20px] opacity-[0.03]" />
+      
+      <div className="container relative z-10 mx-auto px-4">
+        <AnimatedSection className="text-center mb-20 max-w-3xl mx-auto">
+          <span className="text-accent font-semibold tracking-widest uppercase text-sm">
+            Our Masterpieces
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary mt-3 mb-6">
+            Signature Flavors
+          </h2>
+          <div className="w-24 h-1 bg-accent mx-auto rounded-full mb-6" />
+          <p className="text-muted-foreground text-lg font-light leading-relaxed">
+            Slow-cooked to creamy perfection, made fresh daily with authentic ingredients.
           </p>
         </AnimatedSection>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product, index) => (
             <AnimatedSection
               key={product.id}
