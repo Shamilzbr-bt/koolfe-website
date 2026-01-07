@@ -3,101 +3,104 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { brandInfo, getWhatsAppLink } from "@/data/products";
 import logo from "@/assets/koolfe-logo.jpg";
-const navLinks = [{
-  href: "#home",
-  label: "Home"
-}, {
-  href: "#products",
-  label: "Products"
-}, {
-  href: "#about",
-  label: "About"
-}, {
-  href: "#contact",
-  label: "Contact"
-}];
+
+const navLinks = [
+  { href: "#home", label: "Home" },
+  { href: "#products", label: "Our Collection" },
+  { href: "#about", label: "Story" },
+  { href: "#contact", label: "Visit Us" },
+];
+
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
 
-      // Update active section based on scroll position
-      const sections = navLinks.map(link => link.href.slice(1));
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
-    const element = document.getElementById(href.slice(1));
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth"
-      });
-    }
+    const element = document.querySelector(href);
+    element?.scrollIntoView({ behavior: "smooth" });
   };
-  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "glass shadow-soft py-3" : "bg-transparent py-5"}`}>
-      <div className="container-custom">
-        <nav className="flex items-center justify-between">
+
+  return (
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
+          isScrolled
+            ? "glass py-3"
+            : "bg-transparent py-6"
+        }`}
+      >
+        <div className="container mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-3">
-            <img alt={brandInfo.name} className="h-12 w-auto object-contain rounded-lg" src="/lovable-uploads/3a8ab336-04bc-4732-b572-62fe8062df0f.png" />
+          <a href="#home" className="relative z-50 flex items-center gap-3 group">
+            <img 
+              src={logo} 
+              alt={brandInfo.name} 
+              className="h-10 w-auto rounded-md shadow-md transition-transform group-hover:scale-105" 
+            />
+            <span className={`font-display font-bold text-2xl tracking-wide transition-colors ${isScrolled ? 'text-primary' : 'text-white'}`}>
+              {brandInfo.name}
+            </span>
           </a>
 
-          {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-8">
-            {navLinks.map(link => <li key={link.href}>
-                <button onClick={() => handleNavClick(link.href)} className={`nav-link ${activeSection === link.href.slice(1) ? "active" : ""}`}>
-                  {link.label}
-                </button>
-              </li>)}
-          </ul>
-
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button variant="whatsapp" size="default" asChild>
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <button
+                key={link.href}
+                onClick={() => handleNavClick(link.href)}
+                className={`text-sm font-medium transition-colors hover:text-accent relative group ${
+                  isScrolled ? 'text-primary' : 'text-white/90'
+                }`}
+              >
+                {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
+              </button>
+            ))}
+            <Button 
+              className="rounded-full bg-accent hover:bg-accent/90 text-primary font-semibold px-6"
+              asChild
+            >
               <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer">
-                Order on WhatsApp
+                Order Now
               </a>
             </Button>
-          </div>
+          </nav>
 
-          {/* Mobile Menu Toggle */}
-          <button className="md:hidden p-2 text-foreground" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle menu">
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {/* Mobile Toggle */}
+          <button
+            className={`md:hidden z-50 p-2 transition-colors ${isScrolled || isMobileMenuOpen ? 'text-primary' : 'text-white'}`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X /> : <Menu />}
           </button>
-        </nav>
+        </div>
+      </header>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && <div className="md:hidden mt-4 pb-4 animate-fade-in">
-            <ul className="flex flex-col gap-4">
-              {navLinks.map(link => <li key={link.href}>
-                  <button onClick={() => handleNavClick(link.href)} className={`nav-link block w-full text-left py-2 ${activeSection === link.href.slice(1) ? "active" : ""}`}>
-                    {link.label}
-                  </button>
-                </li>)}
-              <li className="pt-2">
-                <Button variant="whatsapp" size="default" className="w-full" asChild>
-                  <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer">
-                    Order on WhatsApp
-                  </a>
-                </Button>
-              </li>
-            </ul>
-          </div>}
+      {/* Fullscreen Mobile Menu */}
+      <div
+        className={`fixed inset-0 z-40 bg-background/95 backdrop-blur-3xl transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] md:hidden ${
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col items-center justify-center h-full gap-8 p-8">
+          {navLinks.map((link) => (
+            <button
+              key={link.href}
+              onClick={() => handleNavClick(link.href)}
+              className="font-display text-4xl text-primary font-bold hover:text-accent transition-colors"
+            >
+              {link.label}
+            </button>
+          ))}
+        </div>
       </div>
-    </header>;
+    </>
+  );
 };
