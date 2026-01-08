@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { products, getWhatsAppLink, type Product } from "@/data/products";
+import { getWhatsAppLink, type Product } from "@/data/products";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
+import { useProducts } from "@/hooks/use-products";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
@@ -42,6 +43,8 @@ const ProductCard = ({ product }: { product: Product }) => {
 };
 
 export const Products = () => {
+  const { data: products, isLoading, error } = useProducts();
+
   return (
     <section id="products" className="py-24 md:py-32 bg-secondary/20 relative">
       {/* Background Pattern */}
@@ -61,17 +64,27 @@ export const Products = () => {
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product, index) => (
-            <AnimatedSection
-              key={product.id}
-              animation="fade-up"
-              delay={index * 100}
-            >
-              <ProductCard product={product} />
-            </AnimatedSection>
-          ))}
-        </div>
+        {isLoading ? (
+          <div className="flex justify-center items-center h-64">
+             <Loader2 className="w-8 h-8 animate-spin text-primary" />
+          </div>
+        ) : error ? (
+           <div className="text-center text-red-500">
+             Failed to load products. Please try again later.
+           </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {products?.map((product, index) => (
+              <AnimatedSection
+                key={product.id}
+                animation="fade-up"
+                delay={index * 100}
+              >
+                <ProductCard product={product} />
+              </AnimatedSection>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
